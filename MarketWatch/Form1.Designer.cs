@@ -46,7 +46,7 @@
             labelDate.Name = "labelDate";
             labelDate.Size = new Size(460, 20);
             labelDate.TabIndex = 0;
-            labelDate.Text = "Thursday, 25 April, 2024";
+            labelDate.Text = "Loading...";
             labelDate.TextAlign = ContentAlignment.TopCenter;
             // 
             // labelWatch
@@ -57,40 +57,40 @@
             labelWatch.Name = "labelWatch";
             labelWatch.Size = new Size(460, 97);
             labelWatch.TabIndex = 1;
-            labelWatch.Text = "13:15:00";
+            labelWatch.Text = "00:00:00";
             labelWatch.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // labelBRFUT
             // 
             labelBRFUT.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelBRFUT.ForeColor = Color.Lime;
+            labelBRFUT.ForeColor = Color.Gray;
             labelBRFUT.Location = new Point(12, 179);
             labelBRFUT.Name = "labelBRFUT";
             labelBRFUT.Size = new Size(460, 16);
             labelBRFUT.TabIndex = 2;
-            labelBRFUT.Text = "BR FUT:";
+            labelBRFUT.Text = "Loading...";
             labelBRFUT.TextAlign = ContentAlignment.TopCenter;
             // 
             // labelBRIBOV
             // 
             labelBRIBOV.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelBRIBOV.ForeColor = Color.Yellow;
+            labelBRIBOV.ForeColor = Color.Gray;
             labelBRIBOV.Location = new Point(12, 202);
             labelBRIBOV.Name = "labelBRIBOV";
             labelBRIBOV.Size = new Size(460, 16);
             labelBRIBOV.TabIndex = 3;
-            labelBRIBOV.Text = "BR IBOV:";
+            labelBRIBOV.Text = "Loading...";
             labelBRIBOV.TextAlign = ContentAlignment.TopCenter;
             // 
             // labelUSNYSE
             // 
             labelUSNYSE.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelUSNYSE.ForeColor = Color.FromArgb(224, 224, 224);
+            labelUSNYSE.ForeColor = Color.Gray;
             labelUSNYSE.Location = new Point(12, 225);
             labelUSNYSE.Name = "labelUSNYSE";
             labelUSNYSE.Size = new Size(460, 16);
             labelUSNYSE.TabIndex = 4;
-            labelUSNYSE.Text = "US NYSE: ";
+            labelUSNYSE.Text = "Loading...";
             labelUSNYSE.TextAlign = ContentAlignment.TopCenter;
             // 
             // labelOperNasdaq
@@ -101,7 +101,7 @@
             labelOperNasdaq.Name = "labelOperNasdaq";
             labelOperNasdaq.Size = new Size(460, 15);
             labelOperNasdaq.TabIndex = 5;
-            labelOperNasdaq.Text = "|OPER| NASDAQ: 11:00 ~11:40 :: 02:40";
+            labelOperNasdaq.Text = "Loading...";
             labelOperNasdaq.TextAlign = ContentAlignment.TopCenter;
             // 
             // timer
@@ -148,5 +148,6 @@
         private Label labelOperNasdaq;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Timer timerEx;
+        private Button button1;
     }
 }

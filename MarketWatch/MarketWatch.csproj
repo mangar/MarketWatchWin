@@ -10,7 +10,30 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\close.mp3" />
+    <None Remove="Resources\open.mp3" />
+    <None Remove="Resources\preclose.mp3" />
+    <None Remove="Resources\preopen.mp3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="app.ico" />
+    <Content Include="Resources\close.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\open.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\preclose.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\preopen.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NAudio" Version="2.2.1" />
   </ItemGroup>
 
 </Project>

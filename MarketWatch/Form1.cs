@@ -1,3 +1,4 @@
+using MarketWatch.Helpers;
 using MarketWatch.Models;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -11,6 +12,7 @@ namespace MarketWatch
         public Form1()
         {
             InitializeComponent();
+            this.TopMost = true;
             InitializeMy();
         }
 
@@ -90,7 +92,6 @@ namespace MarketWatch
             TimeSpan difference = DateTime.Now - inputTime;
             return $"{Math.Abs(difference.Minutes):00}:{Math.Abs(difference.Seconds):00}";
         }
-
 
     }
 }
