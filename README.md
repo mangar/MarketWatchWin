@@ -1,4 +1,4 @@
-# C-MarketWatch
+# MarketWatch
 
 <img src="./_extras/screen.png">
 
@@ -6,7 +6,7 @@
 __Why__
 
 
-C-MarketWatch notify 10 minutes before opening the Exchange and 10 minutes before Exchange is closing.
+MarketWatch notify 10 minutes before opening the Exchange and 10 minutes before Exchange is closing.
 
 
 

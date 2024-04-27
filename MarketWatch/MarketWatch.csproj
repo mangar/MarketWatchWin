@@ -7,6 +7,15 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>app.ico</ApplicationIcon>
+    <Title>MarketWatch</Title>
+    <Copyright>Mangar</Copyright>
+    <PackageIcon>app.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/mangar/MarketWatchWin</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Version>1.0</Version>
+    <Company>Mangar Inc.</Company>
+    <Authors>Marcio Mangar</Authors>
   </PropertyGroup>
 
   <ItemGroup>
@@ -33,7 +42,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="app.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
