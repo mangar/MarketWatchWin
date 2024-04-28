@@ -18,8 +18,11 @@ namespace MarketWatch
 
         private void InitializeMy()
         {
-            labelWatch.Text = DateTime.Now.ToString("HH:mm:ss");
-            labelDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+            ConfigHelper.LoadConfiguration();
+
+            labelWatch.Text = DateTimeHelper.GetTimeNow();
+            labelDate.Text = DateTimeHelper.GetFullDate();
+
 
             var exchanges = new ExchangeFactory().GetExchanges();
 
@@ -27,15 +30,14 @@ namespace MarketWatch
             labelBRIBOV.Text = exchanges[1].GetFullName();
             labelUSNYSE.Text = exchanges[2].GetFullName();
             labelOperNasdaq.Text = exchanges[3].GetFullName();
-
-
+            
         }
 
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            labelWatch.Text = DateTime.Now.ToString("HH:mm:ss");
-            labelDate.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+            labelWatch.Text = labelWatch.Text = DateTimeHelper.GetTimeNow();
+            labelDate.Text = DateTimeHelper.GetFullDate();
         }
 
         private void Form1_Load(object sender, EventArgs e)

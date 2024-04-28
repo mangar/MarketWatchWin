@@ -19,3 +19,4 @@ __Listed Exchanges__
 
 
 This is the C# version of [PyMarketWatch](https://github.com/mangar/PyMarketWatch)
+
