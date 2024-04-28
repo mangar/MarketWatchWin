@@ -1,9 +1,11 @@
 ﻿using MarketWatch.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MarketWatch.Models
 {
@@ -46,6 +48,10 @@ namespace MarketWatch.Models
 
         public string GetStatus()
         {
+            if (IsWeekend()) {
+                return "close";
+            }
+
             var now = DateTimeHelper.GetNow();
             var openToday = OpenToday();
             var closeToday = CloseToday();
@@ -76,6 +82,21 @@ namespace MarketWatch.Models
 
             return "undefined";
         }
+
+        public bool IsWeekend()
+        {
+            var date = DateTimeHelper.GetNow();
+            if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
     }
 }
