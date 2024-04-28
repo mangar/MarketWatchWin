@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             labelDate = new Label();
             labelWatch = new Label();
             labelBRFUT = new Label();
@@ -37,6 +38,8 @@
             labelOperNasdaq = new Label();
             timer = new System.Windows.Forms.Timer(components);
             timerEx = new System.Windows.Forms.Timer(components);
+            pictureDevelopMode = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)pictureDevelopMode).BeginInit();
             SuspendLayout();
             // 
             // labelDate
@@ -114,6 +117,16 @@
             timerEx.Interval = 1000;
             timerEx.Tick += timerEx_Tick;
             // 
+            // pictureDevelopMode
+            // 
+            pictureDevelopMode.Image = (Image)resources.GetObject("pictureDevelopMode.Image");
+            pictureDevelopMode.Location = new Point(462, 2);
+            pictureDevelopMode.Name = "pictureDevelopMode";
+            pictureDevelopMode.Size = new Size(20, 20);
+            pictureDevelopMode.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureDevelopMode.TabIndex = 6;
+            pictureDevelopMode.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 14F);
@@ -121,6 +134,7 @@
             BackColor = Color.FromArgb(26, 26, 26);
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(484, 281);
+            Controls.Add(pictureDevelopMode);
             Controls.Add(labelOperNasdaq);
             Controls.Add(labelUSNYSE);
             Controls.Add(labelBRIBOV);
@@ -135,6 +149,7 @@
             SizeGripStyle = SizeGripStyle.Hide;
             Text = "MarketWatch";
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureDevelopMode).EndInit();
             ResumeLayout(false);
         }
 
@@ -149,5 +164,6 @@
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Timer timerEx;
         private Button button1;
+        private PictureBox pictureDevelopMode;
     }
 }

@@ -23,6 +23,8 @@ namespace MarketWatch
             labelWatch.Text = DateTimeHelper.GetTimeNow();
             labelDate.Text = DateTimeHelper.GetFullDate();
 
+            pictureDevelopMode.Visible = ConfigHelper.Config.settings.debugEnabled;
+
 
             var exchanges = new ExchangeFactory().GetExchanges();
 
