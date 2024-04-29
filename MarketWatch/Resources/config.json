@@ -1,0 +1,28 @@
+{
+	"settings": {
+		"debugEnabled": "False",
+		"startDateTime": "2024-04-10 09:58:00"
+	},
+	"exchanges": [
+		{
+			"name": "BR | FUT",
+			"open": "09:00",
+			"close": "17:00"
+		},
+		{
+			"name": "BR | IBOV",
+			"open": "10:00",
+			"close": "17:30"
+		},
+		{
+			"name": "US | NYSE",
+			"open": "10:30",
+			"close": "17:30"
+		},
+		{
+			"name": "OPER| NASDAQ",
+			"open": "11:00",
+			"close": "11:40"
+		}
+	]
+}

@@ -13,13 +13,18 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/mangar/MarketWatchWin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <Version>1.0</Version>
+    <Version>1.1</Version>
     <Company>Mangar Inc.</Company>
     <Authors>Marcio Mangar</Authors>
+    <AssemblyVersion>1.1.0</AssemblyVersion>
+    <FileVersion>1.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\app_dev.ico" />
+    <None Remove="Resources\app_dev.png" />
     <None Remove="Resources\close.mp3" />
+    <None Remove="Resources\config.json" />
     <None Remove="Resources\open.mp3" />
     <None Remove="Resources\preclose.mp3" />
     <None Remove="Resources\preopen.mp3" />
@@ -27,7 +32,16 @@
 
   <ItemGroup>
     <Content Include="app.ico" />
+    <Content Include="Resources\app_dev.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\app_dev.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\close.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\config.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\open.mp3">
@@ -50,6 +64,22 @@
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
