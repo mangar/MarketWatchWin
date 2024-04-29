@@ -1,8 +1,11 @@
-﻿using System;
+﻿using MarketWatch.Helpers;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MarketWatch.Models
 {
@@ -21,31 +24,35 @@ namespace MarketWatch.Models
 
         public DateTime OpenToday()
         {
-            DateTime now = DateTime.Now;
+            DateTime now = DateTimeHelper.GetNow();
 
             var exchanges = new ExchangeFactory().GetExchanges();
 
             var h = Open.Split(':')[0];
             var m = Open.Split(':')[1];
 
-            return new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, Int32.Parse(h), Int32.Parse(m), 0);
+            return new DateTime(now.Year, now.Month, now.Day, Int32.Parse(h), Int32.Parse(m), 0);
         }
 
         public DateTime CloseToday()
         {
-            DateTime now = DateTime.Now;
+            DateTime now = DateTimeHelper.GetNow();
 
             var exchanges = new ExchangeFactory().GetExchanges();
 
             var h = Close.Split(':')[0];
             var m = Close.Split(':')[1];
 
-            return new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, Int32.Parse(h), Int32.Parse(m), 0);
+            return new DateTime(now.Year, now.Month, now.Day, Int32.Parse(h), Int32.Parse(m), 0);
         }
 
         public string GetStatus()
         {
-            var now = DateTime.Now;
+            if (IsWeekend()) {
+                return "close";
+            }
+
+            var now = DateTimeHelper.GetNow();
             var openToday = OpenToday();
             var closeToday = CloseToday();
             var preOpenDateInit = openToday.AddMinutes(-10);
@@ -75,6 +82,21 @@ namespace MarketWatch.Models
 
             return "undefined";
         }
+
+        public bool IsWeekend()
+        {
+            var date = DateTimeHelper.GetNow();
+            if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
     }
 }
