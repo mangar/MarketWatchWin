@@ -1,7 +1,6 @@
 using MarketWatch.Helpers;
 using MarketWatch.Models;
 using System.Reflection;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace MarketWatch
 {
@@ -24,7 +23,6 @@ namespace MarketWatch
             if (ConfigHelper.Config.settings.debugEnabled)
             {
                 this.Icon = new Icon(@"Resources/app_dev.ico");  // Set initial icon
-
                 pictureDevelopMode.Visible = true;
                 this.Text = "DEV MarketWatch";
             }
@@ -41,13 +39,10 @@ namespace MarketWatch
             labelWatch.Text = DateTimeHelper.GetTimeNow();
             labelDate.Text = DateTimeHelper.GetFullDate();
 
-            var exchanges = new ExchangeFactory().GetExchanges();
-
-            labelBRFUT.Text = exchanges[0].GetFullName();
-            labelBRIBOV.Text = exchanges[1].GetFullName();
-            labelUSNYSE.Text = exchanges[2].GetFullName();
-            labelOperNasdaq.Text = exchanges[3].GetFullName();
-            
+            labelEx0.Text = ConfigHelper.LoadConfiguration().exchanges[0].GetFullName();
+            labelEx1.Text = ConfigHelper.LoadConfiguration().exchanges[1].GetFullName();
+            labelEx2.Text = ConfigHelper.LoadConfiguration().exchanges[2].GetFullName();
+            labelEx3.Text = ConfigHelper.LoadConfiguration().exchanges[3].GetFullName();
         }
 
 
@@ -65,18 +60,17 @@ namespace MarketWatch
 
         private void timerEx_Tick(object sender, EventArgs e)
         {
-            var exchanges = new ExchangeFactory().GetExchanges();
-
-            UpdateLabel(exchanges[0].GetStatus(), exchanges[0], labelBRFUT);
-            UpdateLabel(exchanges[1].GetStatus(), exchanges[1], labelBRIBOV);
-            UpdateLabel(exchanges[2].GetStatus(), exchanges[2], labelUSNYSE);
-            UpdateLabel(exchanges[3].GetStatus(), exchanges[3], labelOperNasdaq);
+            UpdateLabel(ConfigHelper.LoadConfiguration().exchanges[0], labelEx0);
+            UpdateLabel(ConfigHelper.LoadConfiguration().exchanges[1], labelEx1);
+            UpdateLabel(ConfigHelper.LoadConfiguration().exchanges[2], labelEx2);
+            UpdateLabel(ConfigHelper.LoadConfiguration().exchanges[3], labelEx3);
         }
 
 
-        private string UpdateLabel(string status, Exchange ex, Label lbl)
+        private string UpdateLabel(Exchange ex, Label lbl)
         {
-            var text = status;
+            var text = ex.GetStatus();
+            var status = ex.GetStatus();
 
             if (status == "open" || status == "close")
             {

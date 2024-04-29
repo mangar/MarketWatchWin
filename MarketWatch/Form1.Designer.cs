@@ -32,10 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             labelDate = new Label();
             labelWatch = new Label();
-            labelBRFUT = new Label();
-            labelBRIBOV = new Label();
-            labelUSNYSE = new Label();
-            labelOperNasdaq = new Label();
+            labelEx0 = new Label();
+            labelEx1 = new Label();
+            labelEx2 = new Label();
+            labelEx3 = new Label();
             timer = new System.Windows.Forms.Timer(components);
             timerEx = new System.Windows.Forms.Timer(components);
             pictureDevelopMode = new PictureBox();
@@ -63,49 +63,49 @@
             labelWatch.Text = "00:00:00";
             labelWatch.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // labelBRFUT
+            // labelEx0
             // 
-            labelBRFUT.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelBRFUT.ForeColor = Color.Gray;
-            labelBRFUT.Location = new Point(12, 179);
-            labelBRFUT.Name = "labelBRFUT";
-            labelBRFUT.Size = new Size(460, 16);
-            labelBRFUT.TabIndex = 2;
-            labelBRFUT.Text = "Loading...";
-            labelBRFUT.TextAlign = ContentAlignment.TopCenter;
+            labelEx0.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelEx0.ForeColor = Color.Gray;
+            labelEx0.Location = new Point(12, 179);
+            labelEx0.Name = "labelEx0";
+            labelEx0.Size = new Size(460, 16);
+            labelEx0.TabIndex = 2;
+            labelEx0.Text = "Loading...";
+            labelEx0.TextAlign = ContentAlignment.TopCenter;
             // 
-            // labelBRIBOV
+            // labelEx1
             // 
-            labelBRIBOV.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelBRIBOV.ForeColor = Color.Gray;
-            labelBRIBOV.Location = new Point(12, 202);
-            labelBRIBOV.Name = "labelBRIBOV";
-            labelBRIBOV.Size = new Size(460, 16);
-            labelBRIBOV.TabIndex = 3;
-            labelBRIBOV.Text = "Loading...";
-            labelBRIBOV.TextAlign = ContentAlignment.TopCenter;
+            labelEx1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelEx1.ForeColor = Color.Gray;
+            labelEx1.Location = new Point(12, 202);
+            labelEx1.Name = "labelEx1";
+            labelEx1.Size = new Size(460, 16);
+            labelEx1.TabIndex = 3;
+            labelEx1.Text = "Loading...";
+            labelEx1.TextAlign = ContentAlignment.TopCenter;
             // 
-            // labelUSNYSE
+            // labelEx2
             // 
-            labelUSNYSE.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelUSNYSE.ForeColor = Color.Gray;
-            labelUSNYSE.Location = new Point(12, 225);
-            labelUSNYSE.Name = "labelUSNYSE";
-            labelUSNYSE.Size = new Size(460, 16);
-            labelUSNYSE.TabIndex = 4;
-            labelUSNYSE.Text = "Loading...";
-            labelUSNYSE.TextAlign = ContentAlignment.TopCenter;
+            labelEx2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelEx2.ForeColor = Color.Gray;
+            labelEx2.Location = new Point(12, 225);
+            labelEx2.Name = "labelEx2";
+            labelEx2.Size = new Size(460, 16);
+            labelEx2.TabIndex = 4;
+            labelEx2.Text = "Loading...";
+            labelEx2.TextAlign = ContentAlignment.TopCenter;
             // 
-            // labelOperNasdaq
+            // labelEx3
             // 
-            labelOperNasdaq.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            labelOperNasdaq.ForeColor = Color.Gray;
-            labelOperNasdaq.Location = new Point(12, 248);
-            labelOperNasdaq.Name = "labelOperNasdaq";
-            labelOperNasdaq.Size = new Size(460, 15);
-            labelOperNasdaq.TabIndex = 5;
-            labelOperNasdaq.Text = "Loading...";
-            labelOperNasdaq.TextAlign = ContentAlignment.TopCenter;
+            labelEx3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            labelEx3.ForeColor = Color.Gray;
+            labelEx3.Location = new Point(12, 248);
+            labelEx3.Name = "labelEx3";
+            labelEx3.Size = new Size(460, 15);
+            labelEx3.TabIndex = 5;
+            labelEx3.Text = "Loading...";
+            labelEx3.TextAlign = ContentAlignment.TopCenter;
             // 
             // timer
             // 
@@ -135,10 +135,10 @@
             BackgroundImageLayout = ImageLayout.Center;
             ClientSize = new Size(484, 281);
             Controls.Add(pictureDevelopMode);
-            Controls.Add(labelOperNasdaq);
-            Controls.Add(labelUSNYSE);
-            Controls.Add(labelBRIBOV);
-            Controls.Add(labelBRFUT);
+            Controls.Add(labelEx3);
+            Controls.Add(labelEx2);
+            Controls.Add(labelEx1);
+            Controls.Add(labelEx0);
             Controls.Add(labelWatch);
             Controls.Add(labelDate);
             Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -157,10 +157,10 @@
 
         private Label labelDate;
         private Label labelWatch;
-        private Label labelBRFUT;
-        private Label labelBRIBOV;
-        private Label labelUSNYSE;
-        private Label labelOperNasdaq;
+        private Label labelEx0;
+        private Label labelEx1;
+        private Label labelEx2;
+        private Label labelEx3;
         private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Timer timerEx;
         private Button button1;

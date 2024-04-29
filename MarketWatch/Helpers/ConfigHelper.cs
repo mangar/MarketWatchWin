@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MarketWatch.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -13,6 +14,9 @@ namespace MarketWatch.Helpers
     public class Configuration
     {
         public Settings settings { get; set; }
+
+        public Exchange[] exchanges { get; set; }
+
         public DateTime StartDateTime { get; set; }
 
 
