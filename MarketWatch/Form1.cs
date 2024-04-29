@@ -1,5 +1,6 @@
 using MarketWatch.Helpers;
 using MarketWatch.Models;
+using System.Reflection;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace MarketWatch
@@ -20,11 +21,25 @@ namespace MarketWatch
         {
             ConfigHelper.LoadConfiguration();
 
+            if (ConfigHelper.Config.settings.debugEnabled)
+            {
+                this.Icon = new Icon(@"Resources/app_dev.ico");  // Set initial icon
+
+                pictureDevelopMode.Visible = true;
+                this.Text = "DEV MarketWatch";
+            }
+            else 
+            {
+                pictureDevelopMode.Visible = false;
+            }
+
+            // Version
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            this.Text += $" - {assembly.GetName().Version}";
+
+
             labelWatch.Text = DateTimeHelper.GetTimeNow();
             labelDate.Text = DateTimeHelper.GetFullDate();
-
-            pictureDevelopMode.Visible = ConfigHelper.Config.settings.debugEnabled;
-
 
             var exchanges = new ExchangeFactory().GetExchanges();
 
