@@ -39,7 +39,10 @@
             timer = new System.Windows.Forms.Timer(components);
             timerEx = new System.Windows.Forms.Timer(components);
             pictureDevelopMode = new PictureBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            menuItem1_Alarmes = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)pictureDevelopMode).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // labelDate
@@ -127,6 +130,22 @@
             pictureDevelopMode.TabIndex = 6;
             pictureDevelopMode.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { menuItem1_Alarmes });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(181, 48);
+            contextMenuStrip1.Text = "Aaaaa";
+            // 
+            // menuItem1_Alarmes
+            // 
+            menuItem1_Alarmes.Checked = true;
+            menuItem1_Alarmes.CheckState = CheckState.Checked;
+            menuItem1_Alarmes.Name = "menuItem1_Alarmes";
+            menuItem1_Alarmes.Size = new Size(180, 22);
+            menuItem1_Alarmes.Text = "Som de Alarme";
+            menuItem1_Alarmes.Click += menuItem1_Alarmes_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 14F);
@@ -150,6 +169,7 @@
             Text = "MarketWatch";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureDevelopMode).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -165,5 +185,7 @@
         private System.Windows.Forms.Timer timerEx;
         private Button button1;
         private PictureBox pictureDevelopMode;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem menuItem1_Alarmes;
     }
 }

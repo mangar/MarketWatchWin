@@ -18,15 +18,17 @@ namespace MarketWatch
 
         private void InitializeMy()
         {
-            ConfigHelper.LoadConfiguration();
+            this.ContextMenuStrip = contextMenuStrip1;
 
-            if (ConfigHelper.Config.settings.debugEnabled)
+            var config = ConfigHelper.LoadConfiguration();
+
+            if (config.Settings.DebugEnabled)
             {
                 this.Icon = new Icon(@"Resources/app_dev.ico");  // Set initial icon
                 pictureDevelopMode.Visible = true;
                 this.Text = "DEV MarketWatch";
             }
-            else 
+            else
             {
                 pictureDevelopMode.Visible = false;
             }
@@ -35,14 +37,25 @@ namespace MarketWatch
             Assembly assembly = Assembly.GetExecutingAssembly();
             this.Text += $" - {assembly.GetName().Version}";
 
+            // Context Menu
+            menuItem1_Alarmes.Checked = config.Features.FlagAlarms;
+            //this.menuItem1_Alarmes.Checked = false;
 
+            //contextMenuStrip1.Items[0].check
+            //this.ContextMenuStrip.Items[0].checked
+            //config.features.flagAlarms;
+
+
+            //
+            //
+            //
             labelWatch.Text = DateTimeHelper.GetTimeNow();
             labelDate.Text = DateTimeHelper.GetFullDate();
 
-            labelEx0.Text = ConfigHelper.LoadConfiguration().exchanges[0].GetFullName();
-            labelEx1.Text = ConfigHelper.LoadConfiguration().exchanges[1].GetFullName();
-            labelEx2.Text = ConfigHelper.LoadConfiguration().exchanges[2].GetFullName();
-            labelEx3.Text = ConfigHelper.LoadConfiguration().exchanges[3].GetFullName();
+            labelEx0.Text = ConfigHelper.LoadConfiguration().Exchanges[0].GetFullName();
+            labelEx1.Text = ConfigHelper.LoadConfiguration().Exchanges[1].GetFullName();
+            labelEx2.Text = ConfigHelper.LoadConfiguration().Exchanges[2].GetFullName();
+            labelEx3.Text = ConfigHelper.LoadConfiguration().Exchanges[3].GetFullName();
         }
 
 
@@ -60,10 +73,10 @@ namespace MarketWatch
 
         private void timerEx_Tick(object sender, EventArgs e)
         {
-            UpdateLabel(ConfigHelper.LoadConfiguration().exchanges[0], labelEx0);
-            UpdateLabel(ConfigHelper.LoadConfiguration().exchanges[1], labelEx1);
-            UpdateLabel(ConfigHelper.LoadConfiguration().exchanges[2], labelEx2);
-            UpdateLabel(ConfigHelper.LoadConfiguration().exchanges[3], labelEx3);
+            UpdateLabel(ConfigHelper.LoadConfiguration().Exchanges[0], labelEx0);
+            UpdateLabel(ConfigHelper.LoadConfiguration().Exchanges[1], labelEx1);
+            UpdateLabel(ConfigHelper.LoadConfiguration().Exchanges[2], labelEx2);
+            UpdateLabel(ConfigHelper.LoadConfiguration().Exchanges[3], labelEx3);
         }
 
 
@@ -106,5 +119,13 @@ namespace MarketWatch
             return $"{Math.Abs(difference.Minutes):00}:{Math.Abs(difference.Seconds):00}";
         }
 
+        private void menuItem1_Alarmes_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem clickedItem = sender as ToolStripMenuItem;
+            clickedItem.Checked = !clickedItem.Checked;
+
+            ConfigHelper.Config.Features.FlagAlarms = clickedItem.Checked;
+            ConfigHelper.SaveConfig();
+        }
     }
 }

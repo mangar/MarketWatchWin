@@ -13,20 +13,21 @@ namespace MarketWatch.Helpers
 
     public class Configuration
     {
-        public Settings settings { get; set; }
+        public Settings Settings { get; set; }
 
-        public Exchange[] exchanges { get; set; }
+        public Features Features{ get; set; }
+
+        public Exchange[] Exchanges { get; set; }
 
         public DateTime StartDateTime { get; set; }
 
-
         public DateTime GetDateTimeNow()
         {
-            if (settings.debugEnabled && !string.IsNullOrEmpty(settings.startDateTime))
+            if (Settings.DebugEnabled && !string.IsNullOrEmpty(Settings.StartDateTime))
             {
                 try
                 {
-                    var startDateTime = DateTime.ParseExact(settings.startDateTime, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
+                    var startDateTime = DateTime.ParseExact(Settings.StartDateTime, "yyyy-MM-dd HH:mm:ss", CultureInfo.InvariantCulture);
                     TimeSpan difference = DateTime.Now - StartDateTime;
                     var ret = startDateTime.AddSeconds(difference.TotalSeconds);
 
@@ -46,8 +47,15 @@ namespace MarketWatch.Helpers
 
     public class Settings
     {
-        public bool debugEnabled { get; set; }
-        public string startDateTime { get; set; }        
+        public bool DebugEnabled { get; set; }
+        public string StartDateTime { get; set; }
+        public DateTime UpdatedAt { get; set; }
+        public string Version { get; set; }
+    }
+
+    public class Features
+    {
+        public bool FlagAlarms { get; set; }
     }
 
     public class ConfigHelper()
@@ -71,6 +79,20 @@ namespace MarketWatch.Helpers
             }
             return Config;
         }
+
+
+        public static Configuration GetConfig() {
+            return ConfigHelper.LoadConfiguration();
+        }
+
+
+        public static void SaveConfig()
+        {
+            ConfigHelper.Config.Settings.UpdatedAt = DateTime.Now;
+            string jsonString = JsonConvert.SerializeObject(ConfigHelper.Config, Formatting.Indented);
+            File.WriteAllText(@"Resources/config.json", jsonString);
+        }
+
 
     }
 

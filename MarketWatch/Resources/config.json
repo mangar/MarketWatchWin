@@ -1,28 +1,33 @@
 {
-	"settings": {
-		"debugEnabled": "False",
-		"startDateTime": "2024-04-10 09:58:00"
+	"Settings": {
+		"DebugEnabled": false,
+		"StartDateTime": "2024-04-10 09:58:00",
+		"UpdatedAt": "2024-04-10 09:58:00",
+		"Version": "1"
 	},
-	"exchanges": [
+	"Features": {
+		"FlagAlarms":  true
+	},
+	"Exchanges": [
 		{
-			"name": "BR | FUT",
-			"open": "09:00",
-			"close": "17:00"
+			"Name": "BR | FUT",
+			"Open": "09:00",
+			"Close": "17:00"
 		},
 		{
-			"name": "BR | IBOV",
-			"open": "10:00",
-			"close": "17:30"
+			"Name": "BR | IBOV",
+			"Open": "10:00",
+			"Close": "17:30"
 		},
 		{
-			"name": "US | NYSE",
-			"open": "10:30",
-			"close": "17:30"
+			"Name": "US | NYSE",
+			"Open": "10:30",
+			"Close": "17:30"
 		},
 		{
-			"name": "OPER| NASDAQ",
-			"open": "11:00",
-			"close": "11:40"
+			"Name": "OPER| NASDAQ",
+			"Open": "11:00",
+			"Close": "11:40"
 		}
 	]
 }
