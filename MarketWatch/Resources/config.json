@@ -1,12 +1,12 @@
 {
 	"Settings": {
 		"DebugEnabled": false,
-		"StartDateTime": "2024-04-10 09:58:00",
-		"UpdatedAt": "2024-04-10 09:58:00",
+		"StartDateTime": "2024-04-10 08:51:55",
+		"UpdatedAt": "2024-04-10 09:48:00",
 		"Version": "1"
 	},
 	"Features": {
-		"FlagAlarms":  true
+		"FlagAlarms":  false
 	},
 	"Exchanges": [
 		{
@@ -28,6 +28,20 @@
 			"Name": "OPER| NASDAQ",
 			"Open": "11:00",
 			"Close": "11:40"
+		}
+	],
+	"Stocks": [
+		{
+			"Id": "",
+			"Price": ""
+		},
+		{
+			"Id": "",
+			"Price": ""
+		},
+		{
+			"Id": "",
+			"Price": ""
 		}
 	]
 }

@@ -25,9 +25,6 @@ namespace MarketWatch.Models
         public DateTime OpenToday()
         {
             DateTime now = DateTimeHelper.GetNow();
-
-            var exchanges = new ExchangeFactory().GetExchanges();
-
             var h = Open.Split(':')[0];
             var m = Open.Split(':')[1];
 
@@ -37,9 +34,6 @@ namespace MarketWatch.Models
         public DateTime CloseToday()
         {
             DateTime now = DateTimeHelper.GetNow();
-
-            var exchanges = new ExchangeFactory().GetExchanges();
-
             var h = Close.Split(':')[0];
             var m = Close.Split(':')[1];
 

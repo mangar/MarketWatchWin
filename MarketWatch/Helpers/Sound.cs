@@ -1,4 +1,6 @@
-﻿using NAudio.Wave;
+﻿using CSCore.Codecs;
+using CSCore.SoundOut;
+using CSCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,20 +12,80 @@ namespace MarketWatch.Helpers
     public class Sound
     {
 
-        async public static void PlayOpen() 
+        public static bool Playing = false;
+
+        public static void PlayOpenApp()
         {
-            using (var mp3FileReader = new Mp3FileReader(@"Resources/open.mp3"))
-            using (var waveOut = new WaveOutEvent())
+            if (!Sound.Playing)
             {
-                waveOut.Init(mp3FileReader);
-                waveOut.Play();
-                Console.WriteLine("Playing...");
-                while (waveOut.PlaybackState == PlaybackState.Playing)
-                {
-                    System.Threading.Thread.Sleep(100);
-                }
-                Console.WriteLine("Playback Stopped.");
+                string filePath = @"Resources/openapp.mp3";
+                Thread playbackThread = new Thread(() => Sound._Play(filePath));
+                playbackThread.Start();
             }
         }
+
+        public static void PlayOpen()
+        {
+            if (!Sound.Playing)
+            {
+                string filePath = @"Resources/open.mp3";
+                Thread playbackThread = new Thread(() => Sound._Play(filePath));
+                playbackThread.Start();
+            }
+        }
+
+        public static void PlayClose()
+        {
+            if (!Sound.Playing)
+            {
+                string filePath = @"Resources/close.mp3";
+                Thread playbackThread = new Thread(() => Sound._Play(filePath));
+                playbackThread.Start();
+            }
+        }
+
+        public static void PlayPreOpen()
+        {
+            if (!Sound.Playing)
+            {
+                string filePath = @"Resources/preopen.mp3";
+                Thread playbackThread = new Thread(() => Sound._Play(filePath));
+                playbackThread.Start();
+            }
+        }
+
+        public static void PlayPreClose()
+        {
+            if (!Sound.Playing)
+            {
+                string filePath = @"Resources/preclose.mp3";
+                Thread playbackThread = new Thread(() => Sound._Play(filePath));
+                playbackThread.Start();
+            }
+        }
+
+
+        public static void _Play(string filePath) 
+        {
+            if (ConfigHelper.Config.Features.FlagAlarms)
+            {
+                IWaveSource soundSource = CodecFactory.Instance.GetCodec(filePath);
+                using (var soundOut = new WasapiOut())
+                {
+                    soundOut.Initialize(soundSource);
+                    soundOut.Play();
+                    Sound.Playing = true;
+
+                    while (soundOut.PlaybackState == PlaybackState.Playing)
+                    {
+                        Thread.Sleep(500); // Check every half-second
+                    }
+                    Sound.Playing = false;
+                }
+            }
+        }
+
+
+
     }
 }

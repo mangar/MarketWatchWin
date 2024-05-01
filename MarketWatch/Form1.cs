@@ -1,6 +1,9 @@
 using MarketWatch.Helpers;
 using MarketWatch.Models;
+using MarketWatch.Repositories;
 using System.Reflection;
+using WMPLib;
+
 
 namespace MarketWatch
 {
@@ -39,11 +42,6 @@ namespace MarketWatch
 
             // Context Menu
             menuItem1_Alarmes.Checked = config.Features.FlagAlarms;
-            //this.menuItem1_Alarmes.Checked = false;
-
-            //contextMenuStrip1.Items[0].check
-            //this.ContextMenuStrip.Items[0].checked
-            //config.features.flagAlarms;
 
 
             //
@@ -56,6 +54,12 @@ namespace MarketWatch
             labelEx1.Text = ConfigHelper.LoadConfiguration().Exchanges[1].GetFullName();
             labelEx2.Text = ConfigHelper.LoadConfiguration().Exchanges[2].GetFullName();
             labelEx3.Text = ConfigHelper.LoadConfiguration().Exchanges[3].GetFullName();
+
+            //Thread playbackThread = new Thread(() => Sound.PlayOpen());
+            //playbackThread.Start();
+            Sound.PlayOpenApp();
+
+            
         }
 
 
@@ -91,10 +95,18 @@ namespace MarketWatch
                 if (status == "open")
                 {
                     lbl.ForeColor = Color.Green;
+                    if (ExchangeStatusControl.IsStatusChanged(ex))
+                    {
+                        Sound.PlayOpen();
+                    }
                 }
                 if (status == "close")
                 {
                     lbl.ForeColor = Color.Gray;
+                    if (ExchangeStatusControl.IsStatusChanged(ex))
+                    {
+                        Sound.PlayClose();
+                    }
                 }
 
             }
@@ -102,11 +114,19 @@ namespace MarketWatch
             {
                 text = ex.GetFullName() + " :: |PRE OPEN| " + GetTimeDifference(ex.OpenToday());
                 lbl.ForeColor = Color.Yellow;
+                if (ExchangeStatusControl.IsStatusChanged(ex))
+                {
+                    Sound.PlayPreOpen();
+                }
             }
             if (status == "preclose")
             {
                 text = ex.GetFullName() + " :: |PRE CLOSE| " + GetTimeDifference(ex.CloseToday());
                 lbl.ForeColor = Color.Yellow;
+                if (ExchangeStatusControl.IsStatusChanged(ex))
+                {
+                    Sound.PlayPreClose();
+                }
             }
 
             lbl.Text = text;
@@ -115,7 +135,7 @@ namespace MarketWatch
 
         public string GetTimeDifference(DateTime inputTime)
         {
-            TimeSpan difference = DateTime.Now - inputTime;
+            TimeSpan difference = DateTimeHelper.GetNow() - inputTime;
             return $"{Math.Abs(difference.Minutes):00}:{Math.Abs(difference.Seconds):00}";
         }
 
