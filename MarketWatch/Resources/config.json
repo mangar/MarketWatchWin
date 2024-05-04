@@ -1,7 +1,7 @@
 {
 	"Settings": {
-		"DebugEnabled": false,
-		"StartDateTime": "2024-04-10 08:51:55",
+		"DebugEnabled": true,
+		"StartDateTime": "2024-04-10 09:29:55",
 		"UpdatedAt": "2024-04-10 09:48:00",
 		"Version": "1"
 	},

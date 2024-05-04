@@ -26,6 +26,14 @@
     <None Remove="Resources\calendar.json" />
     <None Remove="Resources\close.mp3" />
     <None Remove="Resources\config.json" />
+    <None Remove="Resources\Images\flag_br.png" />
+    <None Remove="Resources\Images\flag_ue.png" />
+    <None Remove="Resources\Images\flag_usa.png" />
+    <None Remove="Resources\Images\main_window.png" />
+    <None Remove="Resources\Images\speaker.png" />
+    <None Remove="Resources\Images\speaker2.png" />
+    <None Remove="Resources\Images\star.png" />
+    <None Remove="Resources\Images\warning.png" />
     <None Remove="Resources\open.mp3" />
     <None Remove="Resources\openapp.mp3" />
     <None Remove="Resources\preclose.mp3" />
@@ -46,31 +54,55 @@
 
   <ItemGroup>
     <Content Include="app.ico" />
-    <Content Include="Resources\app_dev.ico">
+    <Content Include="Resources\Images\app_dev.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\app_dev.png">
+    <Content Include="Resources\Images\app_dev.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\close.mp3">
+    <Content Include="Resources\Images\flag_br.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\calendar.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="Resources\Images\flag_ue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\flag_usa.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\main_window.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\speaker.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\speaker2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\star.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Images\warning.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sounds\close.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Data\calendar.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\open.mp3">
+    <Content Include="Resources\Sounds\open.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\openapp.mp3">
+    <Content Include="Resources\Sounds\openapp.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\preclose.mp3">
+    <Content Include="Resources\Sounds\preclose.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\preopen.mp3">
+    <Content Include="Resources\Sounds\preopen.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -106,9 +138,6 @@
     <None Update="app.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
-    </None>
-    <None Update="Resources\warning.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

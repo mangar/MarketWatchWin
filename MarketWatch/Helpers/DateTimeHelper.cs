@@ -24,5 +24,11 @@ namespace MarketWatch.Helpers
             return ConfigHelper.Config.GetDateTimeNow().ToString("dddd, dd MMMM yyyy");
         }
 
+        public static string GetTimeDifferenceMMSS(DateTime inputTime)
+        {
+            TimeSpan difference = DateTimeHelper.GetNow() - inputTime;
+            return $"{Math.Abs(difference.Minutes):00}:{Math.Abs(difference.Seconds):00}";
+        }
+
     }
 }

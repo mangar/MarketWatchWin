@@ -1,7 +1,10 @@
 using MarketWatch.Helpers;
 using MarketWatch.Models;
 using MarketWatch.Repositories;
+using MarketWatch.Repositories.Calendar;
+using System.Diagnostics;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using WMPLib;
 
 
@@ -10,7 +13,16 @@ namespace MarketWatch
     public partial class Form1 : Form
     {
 
+        public bool FlagMainWindow = true;
 
+        public Form1(bool flagMainWindow)
+        {
+            this.FlagMainWindow = flagMainWindow;
+
+            InitializeComponent();
+            this.TopMost = true;
+            InitializeMy();
+        }
 
         public Form1()
         {
@@ -21,13 +33,26 @@ namespace MarketWatch
 
         private void InitializeMy()
         {
+            //
+            // News
+            //
+            pictureUSFlag.Visible = false;
+            pictureBRFlag.Visible = false;
+            pictureEUFlag.Visible = false;
+            labelNews.Visible = false;
+
+
+            // Main Window Image
+            this.pictureMainWindow.Visible = !this.FlagMainWindow;
+
+
             this.ContextMenuStrip = contextMenuStrip1;
 
             var config = ConfigHelper.LoadConfiguration();
 
             if (config.Settings.DebugEnabled)
             {
-                this.Icon = new Icon(@"Resources/app_dev.ico");  // Set initial icon
+                this.Icon = new Icon(@"Resources/Images/app_dev.ico");  // Set initial icon
                 pictureDevelopMode.Visible = true;
                 this.Text = "DEV MarketWatch";
             }
@@ -55,11 +80,8 @@ namespace MarketWatch
             labelEx2.Text = ConfigHelper.LoadConfiguration().Exchanges[2].GetFullName();
             labelEx3.Text = ConfigHelper.LoadConfiguration().Exchanges[3].GetFullName();
 
-            //Thread playbackThread = new Thread(() => Sound.PlayOpen());
-            //playbackThread.Start();
-            Sound.PlayOpenApp();
 
-            
+            Sound.PlayOpenApp();
         }
 
 
@@ -112,7 +134,7 @@ namespace MarketWatch
             }
             if (status == "preopen")
             {
-                text = ex.GetFullName() + " :: |PRE OPEN| " + GetTimeDifference(ex.OpenToday());
+                text = ex.GetFullName() + " :: |PRE OPEN| " + DateTimeHelper.GetTimeDifferenceMMSS(ex.OpenToday());
                 lbl.ForeColor = Color.Yellow;
                 if (ExchangeStatusControl.IsStatusChanged(ex))
                 {
@@ -121,7 +143,7 @@ namespace MarketWatch
             }
             if (status == "preclose")
             {
-                text = ex.GetFullName() + " :: |PRE CLOSE| " + GetTimeDifference(ex.CloseToday());
+                text = ex.GetFullName() + " :: |PRE CLOSE| " + DateTimeHelper.GetTimeDifferenceMMSS(ex.CloseToday());
                 lbl.ForeColor = Color.Yellow;
                 if (ExchangeStatusControl.IsStatusChanged(ex))
                 {
@@ -133,12 +155,6 @@ namespace MarketWatch
             return text;
         }
 
-        public string GetTimeDifference(DateTime inputTime)
-        {
-            TimeSpan difference = DateTimeHelper.GetNow() - inputTime;
-            return $"{Math.Abs(difference.Minutes):00}:{Math.Abs(difference.Seconds):00}";
-        }
-
         private void menuItem1_Alarmes_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem clickedItem = sender as ToolStripMenuItem;
@@ -146,6 +162,89 @@ namespace MarketWatch
 
             ConfigHelper.Config.Features.FlagAlarms = clickedItem.Checked;
             ConfigHelper.SaveConfig();
+        }
+
+        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("calc.exe");
+        }
+
+        private void duplicarJanelaALTDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1(false);
+            form1.Show();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // Check if Alt and C are pressed together
+            if (keyData == (Keys.Alt | Keys.C))
+            {
+                Process.Start("calc.exe");
+                return true;
+            }
+            else if (keyData == (Keys.Alt | Keys.D))
+            {
+                Form1 form1 = new Form1(false);
+                form1.Show();
+
+                return true;
+            }
+            else if (keyData == (Keys.Alt | Keys.Q))
+            {
+                Application.Exit();
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void timerNews_Tick(object sender, EventArgs e)
+        {
+            var calendarExt = CalendarEconomicRepository.NextEvent();
+            if (!calendarExt.IsEmpty())
+            {
+                labelNews.Text = calendarExt.FullTitle();
+                labelNews.ForeColor = calendarExt.color;
+                labelNews.Visible = true;
+
+                if (calendarExt.CalendarModel.Country.ToLower() == "us")
+                {
+                    pictureUSFlag.Visible = true;
+                    pictureBRFlag.Visible = false;
+                    pictureEUFlag.Visible = false;
+                }
+                else if (calendarExt.CalendarModel.Country.ToLower() == "br")
+                {
+                    pictureUSFlag.Visible = false;
+                    pictureBRFlag.Visible = true;
+                    pictureEUFlag.Visible = false;
+                }
+                else if (calendarExt.CalendarModel.Country.ToLower() == "eu")
+                {
+                    pictureUSFlag.Visible = false;
+                    pictureBRFlag.Visible = false;
+                    pictureEUFlag.Visible = true;
+                }
+                else
+                {
+                    pictureUSFlag.Visible = false;
+                    pictureBRFlag.Visible = false;
+                    pictureEUFlag.Visible = false;
+                }
+
+            }
+            else
+            {
+                pictureUSFlag.Visible = false;
+                pictureBRFlag.Visible = false;
+                pictureEUFlag.Visible = false;
+                labelNews.Visible = false;
+            }
+        }
+
+        private void fecharTodasAsInstanciasALTQToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace MarketWatch.Helpers
         {
             if (!Sound.Playing)
             {
-                string filePath = @"Resources/openapp.mp3";
+                string filePath = @"Resources/Sounds/openapp.mp3";
                 Thread playbackThread = new Thread(() => Sound._Play(filePath));
                 playbackThread.Start();
             }
@@ -28,7 +28,7 @@ namespace MarketWatch.Helpers
         {
             if (!Sound.Playing)
             {
-                string filePath = @"Resources/open.mp3";
+                string filePath = @"Resources/Sounds/open.mp3";
                 Thread playbackThread = new Thread(() => Sound._Play(filePath));
                 playbackThread.Start();
             }
@@ -38,7 +38,7 @@ namespace MarketWatch.Helpers
         {
             if (!Sound.Playing)
             {
-                string filePath = @"Resources/close.mp3";
+                string filePath = @"Resources/Sounds/close.mp3";
                 Thread playbackThread = new Thread(() => Sound._Play(filePath));
                 playbackThread.Start();
             }
@@ -48,7 +48,7 @@ namespace MarketWatch.Helpers
         {
             if (!Sound.Playing)
             {
-                string filePath = @"Resources/preopen.mp3";
+                string filePath = @"Resources/Sounds/preopen.mp3";
                 Thread playbackThread = new Thread(() => Sound._Play(filePath));
                 playbackThread.Start();
             }
@@ -58,7 +58,7 @@ namespace MarketWatch.Helpers
         {
             if (!Sound.Playing)
             {
-                string filePath = @"Resources/preclose.mp3";
+                string filePath = @"Resources/Sounds/preclose.mp3";
                 Thread playbackThread = new Thread(() => Sound._Play(filePath));
                 playbackThread.Start();
             }
@@ -69,7 +69,8 @@ namespace MarketWatch.Helpers
         {
             if (ConfigHelper.Config.Features.FlagAlarms)
             {
-                IWaveSource soundSource = CodecFactory.Instance.GetCodec(filePath);
+                IWaveSource soundSource = CodecFactory.Instance.GetCodec(filePath);              
+                
                 using (var soundOut = new WasapiOut())
                 {
                     soundOut.Initialize(soundSource);
