@@ -1,4 +1,5 @@
 ﻿using MarketWatch.Helpers;
+using MarketWatch.Repositories.CalendarEconomic;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -37,13 +38,25 @@ namespace MarketWatch.Repositories.Calendar
                     if (now >= preNews)
                     {
                         color = Color.Yellow;
+                        if (!CalendarSoundControl.FlagAlreadyPlayed(this.CalendarModel, 10))
+                        {
+                            Sound.PlayPreNews10min();
+                        }
                     }
                     if (now >= prepreNews)
                     {
                         color = Color.Red;
+                        if (!CalendarSoundControl.FlagAlreadyPlayed(this.CalendarModel, 2))
+                        {
+                            Sound.PlayPreNews2min();
+                        }
                     }                    
                     if (now >= newsNow)
                     {
+                        if (!CalendarSoundControl.FlagAlreadyPlayed(this.CalendarModel, 0))
+                        {
+                            Sound.PlayNews();
+                        }
                         color = Color.Lime;
                     }
 

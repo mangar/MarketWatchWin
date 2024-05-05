@@ -50,18 +50,20 @@
             timerNews = new System.Windows.Forms.Timer(components);
             pictureBRFlag = new PictureBox();
             pictureEUFlag = new PictureBox();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)pictureDevelopMode).BeginInit();
             contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureMainWindow).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureUSFlag).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBRFlag).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureEUFlag).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // labelDate
             // 
             labelDate.ForeColor = Color.FromArgb(224, 224, 224);
-            labelDate.Location = new Point(12, 15);
+            labelDate.Location = new Point(3, 0);
             labelDate.Name = "labelDate";
             labelDate.Size = new Size(460, 20);
             labelDate.TabIndex = 0;
@@ -72,9 +74,9 @@
             // 
             labelWatch.Font = new Font("Tahoma", 60F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelWatch.ForeColor = Color.White;
-            labelWatch.Location = new Point(12, 37);
+            labelWatch.Location = new Point(3, 20);
             labelWatch.Name = "labelWatch";
-            labelWatch.Size = new Size(460, 97);
+            labelWatch.Size = new Size(460, 107);
             labelWatch.TabIndex = 1;
             labelWatch.Text = "00:00:00";
             labelWatch.TextAlign = ContentAlignment.MiddleCenter;
@@ -83,9 +85,9 @@
             // 
             labelEx0.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelEx0.ForeColor = Color.Gray;
-            labelEx0.Location = new Point(12, 179);
+            labelEx0.Location = new Point(3, 163);
             labelEx0.Name = "labelEx0";
-            labelEx0.Size = new Size(460, 16);
+            labelEx0.Size = new Size(222, 20);
             labelEx0.TabIndex = 2;
             labelEx0.Text = "Loading...";
             labelEx0.TextAlign = ContentAlignment.TopCenter;
@@ -94,9 +96,9 @@
             // 
             labelEx1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelEx1.ForeColor = Color.Gray;
-            labelEx1.Location = new Point(12, 202);
+            labelEx1.Location = new Point(3, 183);
             labelEx1.Name = "labelEx1";
-            labelEx1.Size = new Size(460, 16);
+            labelEx1.Size = new Size(261, 20);
             labelEx1.TabIndex = 3;
             labelEx1.Text = "Loading...";
             labelEx1.TextAlign = ContentAlignment.TopCenter;
@@ -105,9 +107,9 @@
             // 
             labelEx2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelEx2.ForeColor = Color.Gray;
-            labelEx2.Location = new Point(12, 225);
+            labelEx2.Location = new Point(3, 203);
             labelEx2.Name = "labelEx2";
-            labelEx2.Size = new Size(460, 16);
+            labelEx2.Size = new Size(222, 20);
             labelEx2.TabIndex = 4;
             labelEx2.Text = "Loading...";
             labelEx2.TextAlign = ContentAlignment.TopCenter;
@@ -116,9 +118,9 @@
             // 
             labelEx3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelEx3.ForeColor = Color.Gray;
-            labelEx3.Location = new Point(12, 248);
+            labelEx3.Location = new Point(3, 223);
             labelEx3.Name = "labelEx3";
-            labelEx3.Size = new Size(460, 15);
+            labelEx3.Size = new Size(261, 20);
             labelEx3.TabIndex = 5;
             labelEx3.Text = "Loading...";
             labelEx3.TextAlign = ContentAlignment.TopCenter;
@@ -135,8 +137,9 @@
             // 
             // pictureDevelopMode
             // 
+            pictureDevelopMode.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureDevelopMode.Image = (Image)resources.GetObject("pictureDevelopMode.Image");
-            pictureDevelopMode.Location = new Point(471, 266);
+            pictureDevelopMode.Location = new Point(465, 253);
             pictureDevelopMode.Name = "pictureDevelopMode";
             pictureDevelopMode.Size = new Size(10, 10);
             pictureDevelopMode.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -182,8 +185,9 @@
             // 
             // pictureMainWindow
             // 
+            pictureMainWindow.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureMainWindow.Image = (Image)resources.GetObject("pictureMainWindow.Image");
-            pictureMainWindow.Location = new Point(3, 266);
+            pictureMainWindow.Location = new Point(12, 253);
             pictureMainWindow.Name = "pictureMainWindow";
             pictureMainWindow.Size = new Size(10, 10);
             pictureMainWindow.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -195,18 +199,19 @@
             labelNews.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             labelNews.Font = new Font("Tahoma", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelNews.ForeColor = Color.Gray;
-            labelNews.ImageAlign = ContentAlignment.MiddleLeft;
-            labelNews.Location = new Point(51, 145);
+            labelNews.ImageAlign = ContentAlignment.MiddleRight;
+            labelNews.Location = new Point(81, 127);
             labelNews.Name = "labelNews";
-            labelNews.Size = new Size(405, 22);
+            labelNews.Size = new Size(331, 36);
             labelNews.TabIndex = 8;
             labelNews.Text = "[9:30] Leilão Americano Bill a 8 semanas | 10:30";
             labelNews.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // pictureUSFlag
             // 
+            pictureUSFlag.Anchor = AnchorStyles.Right;
             pictureUSFlag.Image = (Image)resources.GetObject("pictureUSFlag.Image");
-            pictureUSFlag.Location = new Point(25, 147);
+            pictureUSFlag.Location = new Point(55, 135);
             pictureUSFlag.Name = "pictureUSFlag";
             pictureUSFlag.Size = new Size(20, 20);
             pictureUSFlag.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -221,8 +226,9 @@
             // 
             // pictureBRFlag
             // 
+            pictureBRFlag.Anchor = AnchorStyles.Right;
             pictureBRFlag.Image = (Image)resources.GetObject("pictureBRFlag.Image");
-            pictureBRFlag.Location = new Point(25, 147);
+            pictureBRFlag.Location = new Point(3, 135);
             pictureBRFlag.Name = "pictureBRFlag";
             pictureBRFlag.Size = new Size(20, 20);
             pictureBRFlag.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -233,12 +239,29 @@
             // 
             pictureEUFlag.Anchor = AnchorStyles.Right;
             pictureEUFlag.Image = (Image)resources.GetObject("pictureEUFlag.Image");
-            pictureEUFlag.Location = new Point(25, 147);
+            pictureEUFlag.Location = new Point(29, 135);
             pictureEUFlag.Name = "pictureEUFlag";
             pictureEUFlag.Size = new Size(20, 20);
             pictureEUFlag.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureEUFlag.TabIndex = 13;
             pictureEUFlag.TabStop = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(labelDate);
+            flowLayoutPanel1.Controls.Add(labelWatch);
+            flowLayoutPanel1.Controls.Add(pictureBRFlag);
+            flowLayoutPanel1.Controls.Add(pictureEUFlag);
+            flowLayoutPanel1.Controls.Add(pictureUSFlag);
+            flowLayoutPanel1.Controls.Add(labelNews);
+            flowLayoutPanel1.Controls.Add(labelEx0);
+            flowLayoutPanel1.Controls.Add(labelEx1);
+            flowLayoutPanel1.Controls.Add(labelEx2);
+            flowLayoutPanel1.Controls.Add(labelEx3);
+            flowLayoutPanel1.Location = new Point(12, 12);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(468, 238);
+            flowLayoutPanel1.TabIndex = 14;
             // 
             // Form1
             // 
@@ -246,25 +269,17 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(26, 26, 26);
             BackgroundImageLayout = ImageLayout.Center;
-            ClientSize = new Size(484, 281);
-            Controls.Add(pictureEUFlag);
-            Controls.Add(pictureBRFlag);
-            Controls.Add(pictureUSFlag);
-            Controls.Add(labelNews);
+            ClientSize = new Size(488, 275);
+            Controls.Add(flowLayoutPanel1);
             Controls.Add(pictureMainWindow);
             Controls.Add(pictureDevelopMode);
-            Controls.Add(labelEx3);
-            Controls.Add(labelEx2);
-            Controls.Add(labelEx1);
-            Controls.Add(labelEx0);
-            Controls.Add(labelWatch);
-            Controls.Add(labelDate);
             Font = new Font("Tahoma", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Form1";
             SizeGripStyle = SizeGripStyle.Hide;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "MarketWatch";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)pictureDevelopMode).EndInit();
@@ -273,6 +288,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureUSFlag).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBRFlag).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureEUFlag).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -299,5 +315,6 @@
         private ToolStripMenuItem fecharTodasAsInstanciasALTQToolStripMenuItem;
         private PictureBox pictureBRFlag;
         private PictureBox pictureEUFlag;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

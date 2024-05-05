@@ -25,8 +25,11 @@ namespace MarketWatch.Repositories.Calendar
         public DateTime GetDateTimeFull()
         {
             return DateTime.ParseExact(When, "yyyy-MM-dd HH:mm", CultureInfo.InvariantCulture);
+        }
 
-
+        public string UId()
+        {
+            return $"{this.Country}-{this.When}-{this.Title}";
         }
 
     }

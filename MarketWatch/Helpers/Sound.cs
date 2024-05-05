@@ -64,6 +64,35 @@ namespace MarketWatch.Helpers
             }
         }
 
+        public static void PlayPreNews10min()
+        {
+            if (!Sound.Playing)
+            {
+                string filePath = @"Resources/Sounds/prenews10min.mp3";
+                Thread playbackThread = new Thread(() => Sound._Play(filePath));
+                playbackThread.Start();
+            }
+        }
+
+        public static void PlayPreNews2min()
+        {
+            if (!Sound.Playing)
+            {
+                string filePath = @"Resources/Sounds/prenews2min.mp3";
+                Thread playbackThread = new Thread(() => Sound._Play(filePath));
+                playbackThread.Start();
+            }
+        }
+
+        public static void PlayNews()
+        {
+            if (!Sound.Playing)
+            {
+                string filePath = @"Resources/Sounds/news.mp3";
+                Thread playbackThread = new Thread(() => Sound._Play(filePath));
+                playbackThread.Start();
+            }
+        }
 
         public static void _Play(string filePath) 
         {

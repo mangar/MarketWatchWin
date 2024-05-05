@@ -39,7 +39,7 @@ namespace MarketWatch
             pictureUSFlag.Visible = false;
             pictureBRFlag.Visible = false;
             pictureEUFlag.Visible = false;
-            labelNews.Visible = false;
+            labelNews.Text = "   ";
 
 
             // Main Window Image
@@ -238,7 +238,7 @@ namespace MarketWatch
                 pictureUSFlag.Visible = false;
                 pictureBRFlag.Visible = false;
                 pictureEUFlag.Visible = false;
-                labelNews.Visible = false;
+                labelNews.Text = "   ";
             }
         }
 

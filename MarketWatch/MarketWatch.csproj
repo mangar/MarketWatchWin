@@ -38,6 +38,9 @@
     <None Remove="Resources\openapp.mp3" />
     <None Remove="Resources\preclose.mp3" />
     <None Remove="Resources\preopen.mp3" />
+    <None Remove="Resources\Sounds\news.mp3" />
+    <None Remove="Resources\Sounds\prenews10min.mp3" />
+    <None Remove="Resources\Sounds\prenews2min.mp3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -93,6 +96,9 @@
     <Content Include="Resources\config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Sounds\news.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Resources\Sounds\open.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -100,6 +106,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Sounds\preclose.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sounds\prenews10min.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Sounds\prenews2min.mp3">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Resources\Sounds\preopen.mp3">
